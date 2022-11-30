@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible", content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="design.css">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <h1>Calculator</h1>
+        <div class="container">
+            <div class="calculator">
+                <input type="text" placeholder="0" id="output-screen">
+                
+                <button class="btn-operator" onclick="Del()">DEL</button>
+                <button class="btn-operator" onclick="display('^')">^</button>
+                <button class="btn-operator" onclick="display('%')">%</button>
+                <button class="btn-operator" onclick="display('/')">/</button>
+                <button class="btn-number" onclick="display('7')">7</button>
+                <button class="btn-number" onclick="display('8')">8</button>
+                <button class="btn-number" onclick="display('9')">9</button>
+                <button class="btn-operator" onclick="display('*')">*</button>
+                <button class="btn-number" onclick="display('4')">4</button>
+                <button class="btn-number" onclick="display('5')">5</button>
+                <button class="btn-number" onclick="display('6')">6</button>
+                <button class="btn-operator" onclick="display('-')">-</button>
+                <button class="btn-number" onclick="display('1')">1</button>
+                <button class="btn-number" onclick="display('2')">2</button>
+                <button class="btn-number" onclick="display('3')">3</button>
+                <button class="btn-operator" onclick="display('+')">+</button>
+                <button class="btn-ac" onclick="Clear()">AC</button>                
+                <button class="btn-number" onclick="display('0')">0</button>
+                <button class="btn-number" onclick="display('.')">.</button>
+                <button class="btn-operator" onclick="Calculate()">=</button>
+            </div>
+        </div>
+
+<script>
+    let outputScreen = document.getElementById("output-screen");
+
+    function display(num){
+        outputScreen.value += num;
+    }
+    function Clear(){
+            outputScreen.value = ' ';
+        }
+        function Del()
+        {
+            outputScreen.value = outputScreen.value.slice(0,-1); 
+        }
+
+    function Calculate(){
+        try{
+            outputScreen.value = eval(outputScreen.value);
+        }
+        catch(err)
+        {   
+            alert("Invalid")
+        }
+        }
+</script>
+
+    </body>
+</html> 
